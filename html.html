@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	
+	<script> // jquery
+	$(document).ready(function(){
+    var canvas = document.getElementsByTagName('canvas');
+	var rojo = 'rgb(255, 0, 0)';
+	var azul = 'rgb(0, 0, 255)';
+	var blanco = 'rgb(255, 255, 255)';
+	var urlimp = 'https://agent.electricimp.com/CKRa8vqtya4L?data=';
+	
+	function circulo(color, radius, index){
+	radius = typeof radius!== 'undefined' ? radius : 48; //radio default
+	index = typeof index !== 'undefined' ? index : canvas_no;
+	
+	circle = canvas[index].getContext('2d');
+	circle.beginPath();
+	circle.arc(50, 50, radius, 0, 2* Math.PI, false);
+	circle.fillStyle = color;
+	circle.fill();
+	}
+	
+	$(canvas).click(function(){
+	
+		canvas_clicked = $(this).attr('id');
+		canvas_no = canvas_clicked - 1 ;
+		circulo(rojo)
+		num = parseInt(canvas_clicked) + 47;
+		var url = urlimp.concat(num);
+		$.get(url);
+		
+	});
+	
+	$('#reset').click(function(){
+		var radius=49;
+		for(index=0; index < canvas.length; index++){
+			circulo(blanco, radius, index);
+		}
+	});
+	
+	});
+	</script>
+	<style>  <!--css-->
+	html, body{
+ margin: 0;
+ padding: 0;
+ background-color: grey;
+}
+
+#wrapper{
+	margin: 8px auto 6px;
+	width: 732px;
+	position: relative;
+}
+
+#board_wrapper{
+	height: 624px;
+	background-color: white;
+	border: 2px solid black;
+}
+
+div.row_wrapper{
+height: 104px;
+}
+
+div.row_wrapper div{
+width: 100px;
+height: 100px;
+border: 2px solid black;
+float: left;
+}
+
+input[type="button"]{
+  background: #d8e1e6;
+  background-image: -webkit-linear-gradient(top, #d8e1e6, #ced8de);
+  background-image: -moz-linear-gradient(top, #d8e1e6, #ced8de);
+  background-image: -ms-linear-gradient(top, #d8e1e6, #ced8de);
+  background-image: -o-linear-gradient(top, #d8e1e6, #ced8de);
+  background-image: linear-gradient(to bottom, #d8e1e6, #ced8de);
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  font-family: Courier New;
+  color: #5c5c5c;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+#reset{
+top: 0px;
+padding: 6px 39px 6px 40px;
+}
+
+
+</style>
+</head>
+<body>
+	<div id="wrapper"><!--tabla-->
+	<div id="board_wrapper">
+	<div id="a" class="row_wrapper">
+			<div class="chip">
+				<canvas width="100" height="100" id="1"></canvas>
+			</div>
+			<div class="chip">
+				<canvas width="100" height="100" id="2"></canvas>
+			</div>
+			<div class="chip">
+				<canvas width="100" height="100" id="3"></canvas>
+			</div>
+			<div class="chip">
+				<canvas width="100" height="100" id="4"></canvas>
+			</div>
+			<div class="chip">
+				<canvas width="100" height="100" id="5"></canvas>
+			</div>
+			<div class="chip">
+				<canvas width="100" height="100" id="6"></canvas>
+			</div>
+			<div class="chip">
+				<canvas width="100" height="100" id="7"></canvas>
+			</div>
+	</div>
+	<div id="b" class="row_wrapper">
+			<div class="chip">
+				<canvas width="100" height="100" id="8"></canvas>
+			</div>
+			<div class="chip">
+				<canvas width="100" height="100" id="9"></canvas>
+			</div>
+			<div class="chip">
+				<canvas width="100" height="100" id="10"></canvas>
+			</div>
+			<div class="chip">
+				<canvas width="100" height="100" id="11"></canvas>
+			</div>
+			<div class="chip">
+				<canvas width="100" height="100" id="12"></canvas>
+			</div>
+			<div class="chip">
+				<canvas width="100" height="100" id="13"></canvas>
+			</div>
+			<div class="chip">
+				<canvas width="100" height="100" id="14"></canvas>
+			</div>
+	</div>
+	<div id="c" class="row_wrapper">
+			<div class="chip">
+				<canvas width="100" height="100" id="15"></canvas>
+			</div>
+			<div class="chip">
+				<canvas width="100" height="100" id="16"></canvas>
+			</div>
+			<div class="chip">
+				<canvas width="100" height="100" id="17"></canvas>
+			</div>
+			<div class="chip">
+				<canvas width="100" height="100" id="18"></canvas>
+			</div>
+			<div class="chip">
+				<canvas width="100" height="100" id="19"></canvas>
+			</div>
+			<div class="chip">
+				<canvas width="100" height="100" id="20"></canvas>
+			</div>
+			<div class="chip">
+				<canvas width="100" height="100" id="21"></canvas>
+			</div>
+	</div>
+	<div id="d" class="row_wrapper">
+			<div class="chip">
+				<canvas width="100" height="100" id="22"></canvas>
+			</div>
+			<div class="chip">
+				<canvas width="100" height="100" id="23"></canvas>
+			</div>
+			<div class="chip">
+				<canvas width="100" height="100" id="24"></canvas>
+			</div>
+			<div class="chip">
+				<canvas width="100" height="100" id="25"></canvas>
+			</div>
+			<div class="chip">
+				<canvas width="100" height="100" id="26"></canvas>
+			</div>
+			<div class="chip">
+				<canvas width="100" height="100" id="27"></canvas>
+			</div>
+			<div class="chip">
+				<canvas width="100" height="100" id="28"></canvas>
+			</div>
+	</div>
+	<div id="e" class="row_wrapper">
+			<div class="chip">
+				<canvas width="100" height="100" id="29"></canvas>
+			</div>
+			<div class="chip">
+				<canvas width="100" height="100" id="30"></canvas>
+			</div>
+			<div class="chip">
+				<canvas width="100" height="100" id="31"></canvas>
+			</div>
+			<div class="chip">
+				<canvas width="100" height="100" id="32"></canvas>
+			</div>
+			<div class="chip">
+				<canvas width="100" height="100" id="33"></canvas>
+			</div>
+			<div class="chip">
+				<canvas width="100" height="100" id="34"></canvas>
+			</div>
+			<div class="chip">
+				<canvas width="100" height="100" id="35"></canvas>
+			</div>
+	</div>
+	<div id="f" class="row_wrapper">
+			<div class="chip">
+				<canvas width="100" height="100" id="36"></canvas>
+			</div>
+			<div class="chip">
+				<canvas width="100" height="100" id="37"></canvas>
+			</div>
+			<div class="chip">
+				<canvas width="100" height="100" id="38"></canvas>
+			</div>
+			<div class="chip">
+				<canvas width="100" height="100" id="39"></canvas>
+			</div>
+			<div class="chip">
+				<canvas width="100" height="100" id="40"></canvas>
+			</div>
+			<div class="chip">
+				<canvas width="100" height="100" id="41"></canvas>
+			</div>
+			<div class="chip">
+				<canvas width="100" height="100" id="42"></canvas>
+			</div>
+	</div>
+	</div><!-- end boardwrapper-->
+	<p>
+		<input id="reset" type="button" value="Clear Board">
+	</p>
+</div><!--endwrapper-->
+
+</body>
+</html>
